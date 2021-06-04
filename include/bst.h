@@ -29,11 +29,11 @@ class BST {
     return root;
   }
   int depthTree(Node *root) {
-    if (root == nullptr)
+    if (root == nullptr) {
       return 0;
-    else if (root->left == nullptr && root->right == nullptr)
-      return 0;
-    else {
+    } else if (root->left == nullptr && root->right == nullptr) {
+     return 0;
+    } else {
       int lh = depthTree(root->left);
       int rh = depthTree(root->right);
       return (lh > rh ? lh + 1 : rh + 1);
