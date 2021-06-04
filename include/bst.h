@@ -36,7 +36,7 @@ class BST {
     else {
       int lh = depthTree(root->left);
       int rh = depthTree(root->right);
-      return (lh>rh ? lh + 1 : rh + 1);
+      return (lh > rh ? lh + 1 : rh + 1);
     }
   }
   int searchNode(Node *root, T value) {
@@ -51,8 +51,8 @@ class BST {
   }
 
  public:
-  BST():root(nullptr){};
-  ~ BST();
+  BST():root(nullptr);
+  ~BST();
   void add(T value) {
     root = addNode(root, value);
   }
