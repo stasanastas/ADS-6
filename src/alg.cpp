@@ -18,7 +18,7 @@ BST<std::string> makeTree(const char* filename) {
     char ch = file.get();
     if (ch >= 'A' && ch <= 'Z')
       ch = capToLow;
-    boolean inWord = false;
+    bool inWord = false;
     if (ch >= 'a' && ch <= 'z' && inWord == false) {
       inWord = true;
       word += ch;
