@@ -14,7 +14,7 @@ BST<std::string> makeTree(const char* filename) {
     std::cout << "File error!" << std::endl;
     return tree;
   }
-  while(!file.eof()) {
+  while (!file.eof()) {
     char ch = file.get();
     if (ch >= 'A' && ch <= 'Z')
       ch = capToLow;
