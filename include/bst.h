@@ -28,7 +28,7 @@ class BST {
     }
     return root;
   }
-  int depthTree(Node *root) {
+  int depth(Node *root) {
     if (root == nullptr) {
       return 0;
     } else if (root->left == nullptr && root->right == nullptr) {
@@ -38,7 +38,7 @@ class BST {
     int rh = depthTree(root->right);
     return (lh > rh ? lh + 1 : rh + 1);
   }
-  int searchNode(Node *root, T value) {
+  int search(Node *root, T value) {
     if (root == nullptr)
       return 0;
     else if (root->value == value)
@@ -56,10 +56,10 @@ class BST {
     root = addNode(root, value);
   }
   int depth() {
-    return depthTree(root);
+    return depth(root);
   }
   int search(T value) {
-    return searchNode(root, value);
+    return search(root, value);
   }
 };
 #endif  // INCLUDE_BST_H_
