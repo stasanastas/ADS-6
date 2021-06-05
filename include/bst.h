@@ -7,13 +7,24 @@ class BST {
   struct Node {
     T value;
     int count;
-    Node *left;
-    Node *right;
+    Node * left;
+    Node * right;
   };
+ BST():root(nullptr) {}
+  ~BST() {}
+  void add(T value) {
+    root = addNode(root, value);
+  }
+  int depth() {
+    return depthTree(root);
+  }
+  int search(T value) {
+    return searchNode(root, value);
+  }
 
  private:
-  Node *root;
-  Node *addNode(Node *root, T value) {
+  Node * root;
+  Node * addNode(Node * root, T value) {
     if (root == nullptr) {
       root = new Node;
       root->value = value;
@@ -28,17 +39,18 @@ class BST {
     }
     return root;
   }
-  int depth(Node *root) {
+  int depthTree(Node * root) {
     if (root == nullptr) {
       return 0;
-    } else if (root->left == nullptr && root->right == nullptr) {
-     return 0;
+    }
+    if (root->left == nullptr && root->right == nullptr) {
+      return 0;
     }
     int lh = depthTree(root->left);
     int rh = depthTree(root->right);
-    return (lh > rh ? lh + 1 : rh + 1);
+    return (lh > rh ? (lh + 1) : (rh + 1));
   }
-  int search(Node *root, T value) {
+  int searchNode(Node * root, T value) {
     if (root == nullptr)
       return 0;
     else if (root->value == value)
@@ -47,19 +59,6 @@ class BST {
       return searchNode(root->right, value);
     else
       return searchNode(root->left, value);
-  }
-
- public:
-  BST():root(nullptr) {}
-  ~BST() {}
-  void add(T value) {
-    root = addNode(root, value);
-  }
-  int depth() {
-    return depth(root);
-  }
-  int search(T value) {
-    return search(root, value);
   }
 };
 #endif  // INCLUDE_BST_H_
