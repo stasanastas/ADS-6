@@ -33,11 +33,10 @@ class BST {
       return 0;
     } else if (root->left == nullptr && root->right == nullptr) {
      return 0;
-    } else {
-      int lh = depthTree(root->left);
-      int rh = depthTree(root->right);
-      return (lh > rh ? lh + 1 : rh + 1);
     }
+    int lh = depthTree(root->left);
+    int rh = depthTree(root->right);
+    return (lh > rh ? lh + 1 : rh + 1);
   }
   int searchNode(Node *root, T value) {
     if (root == nullptr)
